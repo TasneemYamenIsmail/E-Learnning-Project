@@ -1,0 +1,42 @@
+brainstorming=>>
+
+e-learning project:
+===================
+user model 
+    3 roles (admin, teacher, student)
+course model
+quiz model
+
+
+routes:
+=======
+/register
+/activate/:id
+/login
+/logout
+/upload
+/profile
+
+/addUser/:id
+/getUser/:id
+/updateUser/:id
+/deleteUser/:id
+/getAllUsers
+
+/addCourse/:id
+/getCourse/:id
+/updateCourse/:id
+/deleteCourse/:id
+/getAllCourses
+    /addQuiz/:id
+    /getQuiz/:id
+    /updateQuiz/:id
+    /deleteQuiz/:id
+    /getAllQuizes
+
+
+roles:
+======
+admin can access to students, teachers, courses(but not quizes, cannot view quiz)
+teacher can access all students in his class, and all quizes in his class
+student can access his profile, quizes in his class, only view, answer submit
