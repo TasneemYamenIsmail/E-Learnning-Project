@@ -2,10 +2,42 @@ brainstorming=>>
 
 e-learning project:
 ===================
-user model 
-    3 roles (admin, teacher, student)
-course model
-quiz model
+user model {
+    _id,
+    name,
+    email,
+    password,
+    phone,
+    img,
+    subject:[],
+    tags,
+    courses:[]
+}
+
+teacher model
+{
+    extends user,
+    role: teacher
+}
+
+student model {
+   extends user,
+    role: student
+}
+
+course model {
+    _id,
+    content
+    schedule,
+    quizes:[]
+}
+
+quiz model {
+    courseId,
+    questions: [],
+    status: true if submitted, false if not submitted,
+    valid: true if before due date, false after due date
+}
 
 
 routes:
@@ -23,20 +55,52 @@ routes:
 /deleteUser/:id
 /getAllUsers
 
-/addCourse/:id
-/getCourse/:id
-/updateCourse/:id
-/deleteCourse/:id
-/getAllCourses
-    /addQuiz/:id
-    /getQuiz/:id
-    /updateQuiz/:id
-    /deleteQuiz/:id
-    /getAllQuizes
+/course/create
+/course/get/:id
+/course/update/:id
+/course/delete/:id
+/course/getAll
 
+/course/register/addstudent/:id
+/course/register/updatestudent/:id
+/course/register/deleteStudent/:id
+/course/register/allStudents/:id
+
+/course/schedule/create
+/course/schedule/update/:id
+/course/schedule/delete/:id
+/course/schedule/getAll
+
+/course/attendance/add      //class attendance, more than one student
+/course/attendance/add/:id   //studentId attendance, one student
+/course/attendance/update
+/course/attendance/update/:id
+/course/attendance/delete
+/course/attendance/delete/:id
+/course/attendance/all
+
+==> course quizes
+/course/quiz/create
+/course/quiz/get/:id
+/course/quiz/update/:id
+/course/quiz/delete/:id
+/course/quiz/getAll
+/course/quiz/submit/:id
+
+==>for full quiz
+/quiz/create    
+/quiz/submit/:id
+/quiz/update/:id
+/quiz/delete/:id
+/quiz/getAll
+
+==>for quiz creation
+/quiz/creation/create
+/quiz/creation/update/:id
+/quiz/creation/delete/:id
+/quiz/creation/all
 
 roles:
 ======
-admin can access to students, teachers, courses(but not quizes, cannot view quiz)
 teacher can access all students in his class, and all quizes in his class
 student can access his profile, quizes in his class, only view, answer submit
