@@ -66,11 +66,6 @@ routes:
 /course/register/deleteStudent/:id
 /course/register/allStudents/:id
 
-/course/schedule/create
-/course/schedule/update/:id
-/course/schedule/delete/:id
-/course/schedule/getAll
-
 /course/attendance/add      //class attendance, more than one student
 /course/attendance/add/:id   //studentId attendance, one student
 /course/attendance/update
