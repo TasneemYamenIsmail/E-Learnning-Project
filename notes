@@ -9,34 +9,47 @@ user model {
     password,
     phone,
     img,
-    subject:[],
-    tags,
-    courses:[]
-}
-
-teacher model
-{
-    extends user,
-    role: teacher
-}
-
-student model {
-   extends user,
-    role: student
+    tags:[],
+    courses:[],
+    role: string (teacher or student),
+    grade: // ? grade for student? what about teacher, should we divide modals?
 }
 
 course model {
     _id,
-    content
-    schedule,
+    name,
+    content,
+    totalHours,
+    teacherId,
+    schedule: [      // day:Saturday from: 8 to 10
+        {
+            date: {
+                day,
+                from,
+                to
+             }
+        }
+    ], 
     quizes:[]
 }
 
 quiz model {
     courseId,
     questions: [],
+    startDate,
+    dueDate,
     status: true if submitted, false if not submitted,
-    valid: true if before due date, false after due date
+    valid: true if before due date, false after due date,
+    grade
+}
+
+question model{
+    _id,
+    quizId,
+    type, //? how to manipultae MCQ?
+    qTitle,
+    qAnswer,
+    grade
 }
 
 
@@ -46,7 +59,7 @@ routes:
 /activate/:id
 /login
 /logout
-/upload
+/upload 
 /profile
 
 /addUser/:id
@@ -55,6 +68,7 @@ routes:
 /deleteUser/:id
 /getAllUsers
 
+/course/upload
 /course/create
 /course/get/:id
 /course/update/:id
@@ -62,9 +76,10 @@ routes:
 /course/getAll
 
 /course/register/addstudent/:id
-/course/register/updatestudent/:id
 /course/register/deleteStudent/:id
 /course/register/allStudents/:id
+
+/course/zoomApi //??
 
 /course/attendance/add      //class attendance, more than one student
 /course/attendance/add/:id   //studentId attendance, one student
@@ -76,26 +91,30 @@ routes:
 
 ==> course quizes
 /course/quiz/create
-/course/quiz/get/:id
+/course/quiz/get/:id 
 /course/quiz/update/:id
 /course/quiz/delete/:id
 /course/quiz/getAll
-/course/quiz/submit/:id
+/course/quiz/submit/:id //for student
 
 ==>for full quiz
-/quiz/create    
-/quiz/submit/:id
+/quiz/create 
 /quiz/update/:id
 /quiz/delete/:id
 /quiz/getAll
 
-==>for quiz creation
-/quiz/creation/create
-/quiz/creation/update/:id
-/quiz/creation/delete/:id
-/quiz/creation/all
+==>for question creation
+/question/creation/create
+/question/creation/update/:id
+/question/creation/delete/:id
+/question/creation/all
 
 roles:
 ======
 teacher can access all students in his class, and all quizes in his class
 student can access his profile, quizes in his class, only view, answer submit
+
+
+//questions:
+--helpers as a quide for the website
+--zoom Api
