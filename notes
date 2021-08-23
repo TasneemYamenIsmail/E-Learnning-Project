@@ -48,7 +48,7 @@ question model{
     quizId,
     type, //? how to manipultae MCQ?
     qTitle,
-    qAnswer,
+    qAnswer, ->array
     grade
 }
 
@@ -79,7 +79,7 @@ routes:
 /course/register/deleteStudent/:id
 /course/register/allStudents/:id
 
-/course/zoomApi //??
+/course/zoomApi //?? simulation life session
 
 /course/attendance/add      //class attendance, more than one student
 /course/attendance/add/:id   //studentId attendance, one student
@@ -117,4 +117,4 @@ student can access his profile, quizes in his class, only view, answer submit
 
 //questions:
 --helpers as a quide for the website
---zoom Api
+--zoom Api ?
