@@ -1,5 +1,7 @@
 const Course = require('../db/models/course.model')
 const responseCreator = require('../helpers/response.helper')
+const upload = require('../app/middleware/upload')
+
 
 const create = async(req,res)=>{
     try{
