@@ -11,9 +11,19 @@ const CourseSchema = new mongoose.Schema({
         trim:true,
         unique:true
     },
-    content:{
+    courseContent:{
         type:String,
-        required: true
+        required:true,
+        enum:['txt', 'img', 'vid'],
+        trim:true
+    },
+    txt:{
+        type:String,
+        required: function(){return this.postType=="txt"}
+    },
+    file:{
+        type:String,
+        required: function(){return this.postType=="img"|| this.postType=="vid"}
     },
     totalHours:{
         type:Number,
