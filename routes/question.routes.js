@@ -105,6 +105,7 @@ router.delete('/delete/:id', async (req,res) => {
 
         // I wanna to delete quesId from questions inside quiz collection
         // const quiz = await Quiz
+        await Quiz.updateOne( {_id: question.quizId}, { $pull: {"questions":{"quesId":quesId}}  } )
         res.status(200).send(response(true, question, 'question deleted'))
     }
     catch(e){
