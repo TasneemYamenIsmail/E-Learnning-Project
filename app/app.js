@@ -5,7 +5,8 @@ const express = require('express');
 const mainRouter = require('../routes/main.routes');
 const userRouter = require('../routes/user.routes');
 const courseRouter = require('../routes/course.routes');
-
+const quizRouter = require('../routes/quiz.routes');
+const questionRouter = require('../routes/question.routes');
 
 const app = express();
 
@@ -14,5 +15,7 @@ app.use(express.json())
 app.use(mainRouter);
 app.use(userRouter);
 app.use(courseRouter);
+app.use('/quiz', quizRouter);
+app.use('/question', questionRouter);
 
 module.exports = app

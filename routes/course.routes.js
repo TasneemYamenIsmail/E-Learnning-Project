@@ -3,10 +3,10 @@ const courseController = require('../app/controllers/course.controller')
 const upload = require('../app/middleware/upload')
 
 router.post('/createCourse',courseController.create)
-router.get('/getAllCourse',courseController.getAll)
-router.get('/getAllCourse/:id',courseController.getSingleCourse)
-router.delete('/deleteCourse/:id',courseController.deleteCourse)
-router.patch('/editCourse/:id', courseController.editCourse) //put
+// router.get('/getAllCourse',courseController.getAll)
+// router.get('/getAllCourse/:id',courseController.getSingleCourse)
+// router.delete('/deleteCourse/:id',courseController.deleteCourse)
+// router.patch('/editCourse/:id', courseController.editCourse) //put
 // router.post('/createCourse',upload.single('uploadCourse'),async (req,res)=>{
 //     const newInsert = new Course(req.body)
 //         // res.send(newInsert)
