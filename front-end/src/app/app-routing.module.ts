@@ -9,23 +9,18 @@ import { CoreLayoutComponent } from './core/core-layout.component';
 const routes: Routes = [
   {
     path:'',
-    redirectTo:'auth',
+    redirectTo:'auth/register',
     pathMatch: 'full'
   },
   {
-    path: 'auth',
-
-    children: [
-      {
-        path:'register',
-        component: RegisterComponent
-      },
-      {
-        path:'login',
-        component: LoginComponent
-      },
-    ]
+    path:'auth/register',
+    component: RegisterComponent
   },
+  {
+    path:'auth/login',
+    component: LoginComponent
+  },
+
   {
     path: 'main',
     component: CoreLayoutComponent,
