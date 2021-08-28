@@ -1,26 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthLayoutComponent } from './auth/auth-layout.component';
-import { LoginComponent } from './auth/components/login/login.component';
-import { RegisterComponent } from './auth/components/register/register.component';
 import { CoreLayoutComponent } from './core/core-layout.component';
 
 
 const routes: Routes = [
   {
     path:'',
-    redirectTo:'auth/register',
+    redirectTo:'auth',
     pathMatch: 'full'
   },
   {
-    path:'auth/register',
-    component: RegisterComponent
+    path: 'auth',
+    component: AuthLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: '../app/auth/auth.module#AuthModule'    // old way for lazy routing module
+      }
+    ]
   },
-  {
-    path:'auth/login',
-    component: LoginComponent
-  },
-
   {
     path: 'main',
     component: CoreLayoutComponent,
@@ -28,7 +27,7 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('../app/core/core.module').then(m => m.CoreModule)
+          import('../app/core/core.module').then(m => m.CoreModule)  // new way for lazy routing module
       }
     ]
   },
