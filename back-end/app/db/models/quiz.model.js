@@ -3,7 +3,11 @@ const validator = require("validator")
 const Question = require('./question.model')
 
 const quizSchema = new mongoose.Schema({
-    // courseId,
+    courseId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Course",
+        required:true
+    },
     title:{
         type: String,
         min: 10,

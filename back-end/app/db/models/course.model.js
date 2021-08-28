@@ -55,17 +55,12 @@ const CourseSchema = new mongoose.Schema({
              }
         }
     ],
-    quizes:[
-        {
-           quiz:{
-              name:{
-                  type:String,
-                  required:true
-              }
-
-           } 
+    quizzes:[{
+        quizId: {
+            type: mongoose.Schema.Types.ObjectId, 
+            ref:"Quiz"
         }
-    ]
+    }]
 })
 
 const Course = mongoose.model("Course", CourseSchema)
