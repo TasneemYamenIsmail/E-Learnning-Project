@@ -20,7 +20,7 @@ course model {
     name,
     content,
     totalHours,
-    teacherId,
+    userId,
     schedule: [      // day:Saturday from: 8 to 10
         {
             date: {

@@ -84,11 +84,11 @@
                 Role is invalid format, Insert Either "student" or "teacher"
             </div>
 
-            <input type="text" placeholder="Tag" formControlName="tag">
+            <input type="text" placeholder="Tag" formControlName="tags">
+            <div class="text-secondary tag-font">
+              Insert tags separated by comma ,
+            </div>
 
-            <!-- <div class="alert alert-warning" role="alert" *ngIf="error">
-              {{error.error.data}}
-            </div> -->
             <button class="site-btn register-btn" type="submit">
               <ng-container *ngIf="!isLoading; else loading">
                 Register

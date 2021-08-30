@@ -30,9 +30,9 @@ const CourseSchema = new mongoose.Schema({
         required: true
         
     },
-    teacherId:{
+    userId:{
         type: mongoose.Schema.Types.ObjectId,
-        ref:"Teacher",
+        ref:"User",
         required:true
     }
     ,// day:Saturday from: 8 to 10

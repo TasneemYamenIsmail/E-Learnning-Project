@@ -26,7 +26,7 @@ const getUser = async(req,res)=>{
         res.status(200).send(response)
     }
     catch(e) {
-        const response = responseCreator(true, e.message, 'User Loading Error');
+        const response = responseCreator(false, e.message, 'User Loading Error');
         res.status(500).send(response)
     }
 }
@@ -143,23 +143,23 @@ const getAllUsers = async(req,res)=>{
         res.status(200).send(response)
     }
     catch(e) {
-        const response = responseCreator(true, e.message, 'Users Loading Error');
+        const response = responseCreator(false, e.message, 'Users Loading Error');
         res.status(500).send(response)
     }
 }
 
 const getUserCourses = async(req,res)=>{
     try{
+
         const user = req.user
         await user.populate({
             path: 'userCourses'
         }).execPopulate();
-
         const response = responseCreator(true, user.userCourses, 'Users Courses Loaded Successfully');
         res.status(200).send(response)
     }
     catch(e) {
-        const response = responseCreator(true, e.message, 'Users Courses Loading Error');
+        const response = responseCreator(false, e.message, 'Users Courses Loading Error');
         res.status(500).send(response)
     }
 }

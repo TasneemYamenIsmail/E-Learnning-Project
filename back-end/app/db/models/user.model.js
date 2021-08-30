@@ -96,9 +96,7 @@ userSchema.statics.findCredientials = async function(email, password) {
 userSchema.methods.generateToken = async function () {
     const user = this;
     const token = jwt.sign({_id:user._id}, process.env.JWTSECURITY);
-    console.log(token)
     user.tokens = user.tokens.concat({token});
-    console.log('user.tokens:',user.tokens)
     await user.save()
     return token
 }
@@ -108,6 +106,7 @@ userSchema.virtual('userCourses', {
     localField:"_id",
     foreignField:"userId"
 })
+
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { matchPassword, matchRole, validatePassword } from '../../helpers/auth.helper';
 import { User } from '../../models/user.model';
@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/)]],
       role:['', [Validators.required, matchRole]],
-      tag:[],
+      tags:'',
     } ,
     {
         validator: [matchPassword('password', 'confirmPassword'),validatePassword()]
@@ -49,9 +49,13 @@ export class RegisterComponent implements OnInit {
 
     if(this.registerForm.valid  && !this.isLoading) {
       this.isLoading= true;
+      let tags = this.registerForm.getRawValue().tags
       const user = new User(this.registerForm.getRawValue())
-      console.log('user:',user);
-      this.authService.register(user).subscribe(
+      tags = tags.split(',').map(tag=>{
+        return {tag}
+      })
+
+      this.authService.register({...user, tags}).subscribe(
         (data)=>{
           console.log('data:',data);
           this.isLoading= false;

@@ -9,6 +9,8 @@ router.get('', (req,res)=>{
 });
 
 router.post('/register', controller.addUser);
+router.get('/user/courses', auth, controller.getUserCourses);
+
 router.get('/user/:id', controller.getUser);
 router.get('/activate/:id', controller.activateUser);
 router.post('/login', controller.login);
@@ -22,7 +24,7 @@ router.patch('/updateUser/:id', auth,  teacherStudentAuth, controller.updateUser
 router.delete('/deleteUser/:id', auth, controller.deleteUser);
 router.get('/allUsers', auth, controller.getAllUsers);
 
- module.exports = router;
+module.exports = router;
 
 
  
