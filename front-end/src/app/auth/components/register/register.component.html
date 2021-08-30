@@ -1,0 +1,105 @@
+<section class="signup-section spad">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="signup-warp">
+          <div class="section-title text-white text-left">
+            <h2>Register As A Teacher Or A Student</h2>
+          </div>
+          <!-- signup form -->
+          <form class="signup-form" [formGroup]="registerForm"  #registerNgForm="ngForm" (ngSubmit)="register()">
+            <input type="text" placeholder="* Name" formControlName="name">
+            <div class="text-danger"
+                *ngIf="(registerFormControl.name.touched && registerNgForm.submitted) && registerFormControl.name?.errors?.required">
+                Name is required
+          </div>
+
+            <input type="text" placeholder="* E-mail" formControlName="email">
+            <div class="text-danger"
+              *ngIf="(registerFormControl.email.touched && registerNgForm.submitted) && registerFormControl.email?.errors?.required">
+              Email is required
+            </div>
+            <div class="text-danger"
+                *ngIf="(registerFormControl.email.touched && registerNgForm.submitted) && registerFormControl.email?.errors?.email">
+                Email is invalid format
+            </div>
+
+            <input type="text" placeholder="Phone" formControlName="phone">
+
+            <div class="text-danger"
+                *ngIf="(registerFormControl.phone.touched && registerNgForm.submitted) && registerFormControl.phone.errors?.pattern">
+                Phone is invalid format
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <input type="text" placeholder="* Password" formControlName="password">
+                <div class="text-danger"
+                  *ngIf="(registerFormControl.password.touched && registerNgForm.submitted) && registerFormControl.password?.errors?.required">
+                  Password is required
+                </div>
+                <div class="text-danger"
+                    *ngIf="(registerFormControl.password.touched && registerNgForm.submitted) && registerFormControl.password?.errors?.pattern">
+                    Password is invalid format
+                </div>
+                <div class="text-danger"
+                  *ngIf="(registerFormControl.touched && registerNgForm.submitted) && registerFormControl.errors?.invalidPassword">
+                  Password are Invalid
+              </div>
+              <div class="text-danger"
+                  *ngIf="(registerForm.touched && registerNgForm.submitted) && registerForm.errors?.invalidPassword">
+                  Password are Invalid
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <input type="text" placeholder="* Confirm Password" formControlName="confirmPassword">
+              <div class="text-danger"
+                *ngIf="(registerFormControl.confirmPassword.touched && registerNgForm.submitted) && registerFormControl.confirmPassword?.errors?.required">
+                Confirm Password is required
+              </div>
+              <div class="text-danger"
+                  *ngIf="(registerFormControl.confirmPassword.touched && registerNgForm.submitted) && registerFormControl.confirmPassword?.errors?.pattern">
+                  Confirm Password is invalid format
+              </div>
+              <div class="text-danger"
+                  *ngIf="(registerFormControl.confirmPassword.touched && registerNgForm.submitted) && registerFormControl.confirmPassword?.errors?.passwordMismatch">
+                  Confirm Password does not match Password
+              </div>
+              <div class="text-danger"
+                  *ngIf="(registerForm.touched && registerNgForm.submitted) && registerForm.errors?.invalidPassword">
+                  Password are Invalid
+              </div>
+            </div>
+          </div>
+
+            <input type="text" placeholder="* Role" formControlName="role">
+            <div class="text-danger"
+              *ngIf="(registerFormControl.role.touched && registerNgForm.submitted) && registerFormControl.role?.errors?.required">
+              Role is required
+            </div>
+            <div class="text-danger"
+                *ngIf="(registerFormControl.role.touched && registerNgForm.submitted) && registerFormControl.role?.errors?.misMatch">
+                Role is invalid format, Insert Either "student" or "teacher"
+            </div>
+
+            <input type="text" placeholder="Tag" formControlName="tag">
+
+            <!-- <div class="alert alert-warning" role="alert" *ngIf="error">
+              {{error.error.data}}
+            </div> -->
+            <button class="site-btn register-btn" type="submit">
+              <ng-container *ngIf="!isLoading; else loading">
+                Register
+              </ng-container>
+              <ng-template #loading>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              </ng-template>
+              </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

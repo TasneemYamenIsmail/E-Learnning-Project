@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthLayoutComponent } from './auth/auth-layout.component';
+import { ActivateComponent } from './auth/components/activate/activate.component';
 import { CoreLayoutComponent } from './core/core-layout.component';
 
 
@@ -32,6 +33,10 @@ const routes: Routes = [
     ]
   },
 
+  {
+    path:'activate-user/:id',
+    component: ActivateComponent
+  },
   { path: '**', redirectTo: '/main', pathMatch: 'full' }
 
 ];

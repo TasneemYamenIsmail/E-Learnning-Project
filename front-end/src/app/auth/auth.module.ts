@@ -4,6 +4,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthLayoutComponent } from './auth-layout.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ActivateComponent } from './components/activate/activate.component';
 
 
 
@@ -11,14 +13,18 @@ import { AuthLayoutComponent } from './auth-layout.component';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    ActivateComponent
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports:[
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    ActivateComponent
   ]
 })
 export class AuthModule { }

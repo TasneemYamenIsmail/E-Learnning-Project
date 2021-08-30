@@ -1,1 +1,24 @@
+<header class="header-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <div class="site-logo">
+          <img src="assets/img/logo.png" alt="">
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-9">
+        <a routerLink="/auth/login" routerLinkActive="active-link"  class="site-btn auth-site-btn header-btn">Login</a>
+        <a routerLink="/auth/register" routerLinkActive="active-link" class="site-btn  auth-site-btn header-btn">Signup</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero-section set-bg" [style.background-image]="'url(assets/img/bg.jpg)'">
+  <div class="container">
+    <div class="hero-text text-white">
+      <h2>Get The Best Free Online Courses</h2>
+    </div>
+  </div>
+</section>
 <router-outlet></router-outlet>

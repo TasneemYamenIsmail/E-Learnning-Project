@@ -29,6 +29,12 @@ h6 {
 	color: #474747;
 }
 
+.text-danger{
+  color: #d82a4e !important;
+  font-size: 10px;
+  margin: 5px 0;
+}
+
 h1 {
 	font-size: 70px;
 }
@@ -85,6 +91,10 @@ textarea:focus {
 
 ::placeholder {
 	font-style: italic;
+}
+
+a{
+  text-decoration: none;
 }
 
 a:hover {
@@ -645,7 +655,7 @@ ol {
 	height: 57px;
 	width: 100%;
 	padding: 0 30px;
-	margin-bottom: 27px;
+	margin-bottom: 10px;
 	float: left;
 	border: none;
 	font-size: 14px;

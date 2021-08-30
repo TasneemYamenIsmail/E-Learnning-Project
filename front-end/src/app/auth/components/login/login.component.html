@@ -1,1 +1,56 @@
-<p>login works!</p>
+<section class="signup-section spad">
+  <!-- <div class="signup-bg set-bg" ></div> -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="signup-warp">
+          <div class="section-title text-white text-left">
+            <h2>Register As A Teacher Or A Student</h2>
+          </div>
+          <!-- signup form -->
+          <form class="signup-form" [formGroup]="loginForm"  #loginNgForm="ngForm" (ngSubmit)="login()">
+
+            <input type="text" placeholder="* E-mail" formControlName="email">
+            <div class="text-danger"
+              *ngIf="(loginFormControl.email.touched && loginNgForm.submitted) && loginFormControl.email?.errors?.required">
+              Email is required
+            </div>
+            <div class="text-danger"
+                *ngIf="(loginFormControl.email.touched && loginNgForm.submitted) && loginFormControl.email?.errors?.email">
+                Email is invalid format
+            </div>
+
+
+
+                <input type="text" placeholder="* Password" formControlName="password">
+                <div class="text-danger"
+                  *ngIf="(loginFormControl.password.touched && loginNgForm.submitted) && loginFormControl.password?.errors?.required">
+                  Password is required
+                </div>
+                <div class="text-danger"
+                    *ngIf="(loginFormControl.password.touched && loginNgForm.submitted) && loginFormControl.password?.errors?.pattern">
+                    Password is invalid format
+                </div>
+              <div class="text-danger"
+                  *ngIf="(loginForm.touched && loginNgForm.submitted) && loginForm.errors?.invalidPassword">
+                  Password are Invalid
+              </div>
+
+
+              <!-- <div class="alert alert-warning" role="alert" *ngIf="error">
+                {{error.error.data}}
+              </div> -->
+            <button class="site-btn register-btn" type="submit">
+              <ng-container *ngIf="!isLoading; else loading">
+                Login
+              </ng-container>
+              <ng-template #loading>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              </ng-template>
+              </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

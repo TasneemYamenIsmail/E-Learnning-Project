@@ -6,7 +6,7 @@ const addUser = async(req,res)=>{
     try{
         const user = new User(req.body);
         await user.save();
-        sendActivationEmail(user.email, `activation link http://localhost:8000/activate/${user._id}`)
+        sendActivationEmail(user.email, `activation link http://localhost:4200/activate-user/${user._id}`)
         const response = responseCreator(true, user, 'User Registerd Successfully');
         res.status(200).send(response)
     }
@@ -55,6 +55,8 @@ const login = async(req,res)=>{
         const user = await User.findCredientials(req.body.email, req.body.password);
         if(!user)
             res.status(404).send(responseCreator(false, {}, 'User Not Found'))
+        if(!user.status)
+            res.status(404).send(responseCreator(false, {}, 'User Not Activated'))
         const token = await user.generateToken();
 
         const response = responseCreator(true, {user, token}, 'User Logged In Successfully');

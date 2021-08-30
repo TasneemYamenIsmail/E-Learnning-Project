@@ -27,11 +27,11 @@ const userSchema = mongoose.Schema({
         min:8,
         match: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/,
         validate(value){
-            if( value.toLowerCase().includes('123') &&
-                value.toLowerCase().includes('pass') &&
-                value.toLowerCase().includes('password') &&
-                value.toLowerCase().includes(this.name) &&
-                value.toLowerCase().includes(this.email) )
+            if( value.toLowerCase().includes('123') ||
+            value.toLowerCase().includes('pass') ||
+            value.toLowerCase().includes('password') ||
+            value.toLowerCase().includes(this.name) ||
+            value.toLowerCase().includes(this.email) )
                     throw new Error('Invalid Email')
         }
     },
@@ -39,7 +39,7 @@ const userSchema = mongoose.Schema({
         type: String,
         trim: true,
         validate(value){
-            if(!validator.isMobilePhone(value, ['ar-EG'])) throw new Error('invalid phone number')
+            if(value && !validator.isMobilePhone(value, ['ar-EG'])) throw new Error('invalid phone number')
         }
     },
     img:{

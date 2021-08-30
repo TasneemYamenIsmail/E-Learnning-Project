@@ -12,6 +12,8 @@ import { SingleTeacherComponent } from './teacher/components/single-teacher/sing
 import { TeachersListComponent } from './teacher/components/teachers-list/teachers-list.component';
 import { CoreLayoutComponent } from './core-layout.component';
 import { CoreRoutingModule } from './core-routing.module';
+import { FooterComponent } from '../layout/footer/footer.component';
+import { NavbarComponent } from '../layout/navbar/navbar.component';
 
 
 
@@ -27,7 +29,9 @@ import { CoreRoutingModule } from './core-routing.module';
     StudentsListComponent,
     SingleTeacherComponent,
     TeachersListComponent,
-    CoreLayoutComponent
+    CoreLayoutComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
