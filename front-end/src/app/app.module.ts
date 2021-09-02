@@ -9,8 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthInterceptor } from './auth/services/auth.interceptor';
-import { AuthModule } from './auth';
-import { CoreModule } from './core';
 
 @NgModule({
   declarations: [
@@ -23,8 +21,6 @@ import { CoreModule } from './core';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    AuthModule,
-    CoreModule,
     ToastrModule.forRoot()
   ],
   providers: [{
