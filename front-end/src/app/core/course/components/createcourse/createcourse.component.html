@@ -3,32 +3,33 @@
 		<div class="container">
 			<div class="site-breadcrumb">
 				<a href="#">Home</a>
-				<span>Edit Course</span>
+				<span>New Courses</span>
+                <p>{{myData | json}}</p>
 			</div>
 		</div>
 	</div>
 	<!-- Page info end -->
 
     <section class="search-section ss-other-page container">
-        <h3>Edit Course</h3>
-        <form [formGroup]="myForm" (ngSubmit)="handleEdit()">
+        <h3>Create New Course</h3>
+        <form [formGroup]="myForm" (ngSubmit)="handleSubmit(myForm)">
 
-            <input class="form-control" type="text" name="name" placeholder="Cousre Name"  formControlName="name">
+            <input class="form-control" type="text" name="name" placeholder="Cousre Name" formControlName="name">
             <br>
-            <!-- <div *ngIf="name?.invalid && (name?.dirty)">
+            <div *ngIf="name?.invalid && (name?.dirty)">
                 <div class="alert alert-danger" *ngIf="name?.errors?.required">Course name is required</div>
                 <div class="alert alert-danger" *ngIf="name?.errors?.minlength">Course name must be more than 3 char</div>
                 <div class="alert alert-danger" *ngIf="name?.errors?.maxlength">Course name must be less than 30 char</div>
             </div>
 
-            <input class="form-control" type="text" name="content" placeholder="Cousre Description" [(ngModel)]="courseData.content" formControlName="content">
+            <input class="form-control" type="text" name="content" placeholder="Cousre Description" formControlName="content">
             <br>
             <div *ngIf="content?.invalid && (content?.dirty)">
                 <div class="alert alert-danger" *ngIf="content?.errors?.required">Course content is required</div>
                 <div class="alert alert-danger" *ngIf="content?.errors?.minlength">Course content must be more than 3 char</div>
             </div>
 
-            <input class="form-control" type="text" name="courseContent" placeholder="Cousre Content" [(ngModel)]="courseData.courseContent" formControlName="courseContent">
+            <input class="form-control" type="text" name="courseContent" placeholder="Cousre Content" formControlName="courseContent">
             <br>
             <div *ngIf="courseContent?.invalid && (courseContent?.dirty)">
                 <div class="alert alert-danger" *ngIf="courseContent?.errors?.required">Course content is required</div>
@@ -36,7 +37,7 @@
             </div>
 
 
-            <input class="form-control" type="number" name="totalHours" placeholder="totalHours" [(ngModel)]="courseData.totalHours" formControlName="totalHours">
+            <input class="form-control" type="number" name="totalHours" placeholder="totalHours" formControlName="totalHours">
             <br>
             <div *ngIf="totalHours?.invalid && (totalHours?.dirty)">
                 <div class="alert alert-danger" *ngIf="totalHours?.errors?.required">Total Hours is required</div>
@@ -44,21 +45,21 @@
                 <div class="alert alert-danger" *ngIf="totalHours?.errors?.max">Total Hours must be less than 80 hourse</div>
             </div>
 
-            <input class="form-control" name="teacherId" placeholder="teacher Id" [(ngModel)]="courseData.teacherId" formControlName="teacherId">
+            <input class="form-control" name="teacherId" placeholder="teacher Id" formControlName="teacherId">
             <br>
             <div *ngIf="teacherId?.invalid && (teacherId?.dirty)">
                 <div class="alert alert-danger" *ngIf="teacherId?.errors?.required">teacher Id is required</div>
             </div>
 
-            <input class="form-control" name="quizId" placeholder="quizId" [(ngModel)]="courseData.quizId" formControlName="quizId">
+            <input class="form-control" name="quizId" placeholder="quizId" formControlName="quizId">
             <br>
             <div *ngIf="quizId?.invalid && (quizId?.dirty)">
                 <div class="alert alert-danger" *ngIf="quizId?.errors?.required">Quiz Id is required</div>
             </div>
- -->
+
          
 
-            <button type="submit">Edit</button>
+            <button type="submit">Create</button>
 
 
 

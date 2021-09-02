@@ -14,6 +14,7 @@ import { CoreLayoutComponent } from './core-layout.component';
 import { CoreRoutingModule } from './core-routing.module';
 import { FooterComponent } from '../layout/footer/footer.component';
 import { NavbarComponent } from '../layout/navbar/navbar.component';
+import { CreatecourseComponent } from './course/components/createcourse/createcourse.component';
 
 
 
@@ -31,7 +32,8 @@ import { NavbarComponent } from '../layout/navbar/navbar.component';
     TeachersListComponent,
     CoreLayoutComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    CreatecourseComponent
   ],
   imports: [
     CommonModule,
