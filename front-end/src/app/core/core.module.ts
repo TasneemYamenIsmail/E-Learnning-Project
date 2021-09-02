@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SingleCourseComponent } from './course/components/single-course/single-course.component';
@@ -37,7 +38,9 @@ import { CreatecourseComponent } from './course/components/createcourse/createco
   ],
   imports: [
     CommonModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
     CoreLayoutComponent
