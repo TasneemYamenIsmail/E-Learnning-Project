@@ -12,10 +12,22 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent implements OnInit {
 
   public isLoading = false;
-  public error:{error:{data:string}}
+  public error!: { error: { data: string; }; };
 
-  @ViewChild('loginNgForm',{static: true}) public loginNgForm:NgForm
-  loginForm : FormGroup
+  @ViewChild('loginNgForm', { static: true })
+  public loginNgForm!: NgForm;
+
+
+  loginForm : FormGroup = this.fb.group({
+    email:['',[Validators.required, Validators.email]],
+    password:['', [
+      Validators.required,
+      Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/)]],
+  },
+  {
+    validator: [validatePassword()]
+}
+  )
 
   public constructor(
     public fb: FormBuilder,
@@ -24,16 +36,6 @@ export class LoginComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.loginForm = this.fb.group({
-      email:['',[Validators.required, Validators.email]],
-      password:['', [
-        Validators.required,
-        Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/)]],
-    },
-    {
-      validator: [validatePassword()]
-  }
-    )
   }
 
   get loginFormControl(): {

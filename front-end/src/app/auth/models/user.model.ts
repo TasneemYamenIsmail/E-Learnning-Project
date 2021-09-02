@@ -15,13 +15,13 @@ export class User{
   token?:token[]
 
   public constructor(user: Partial<User>){
-    this.name = user.name;
-    this.email = user.email;
-    this.password = user.password;
-    this.phone = user.phone;
+    this.name = user.name||'';
+    this.email = user.email||'';
+    this.password = user.password||'';
+    this.phone = user.phone||'';
     this.img = user.img||'';
     this.tags = user.tags||[];
-    this.role = user.role;
+    this.role = user.role||'student';
     this.grade = user.grade||0;
     this.status = user.status||false;
     this.token = user.token;

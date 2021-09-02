@@ -12,10 +12,28 @@ import { AuthService } from '../../services/auth.service';
 })
 export class RegisterComponent implements OnInit {
   public isLoading = false;
-  public error:{error:{data:string}}
+  public error!: { error: { data: string; }; };
 
-  public registerForm:FormGroup;
-  @ViewChild('registerNgForm',{static: true}) public registerNgForm:NgForm
+  public registerForm:FormGroup = this.fb.group({
+    name:['', Validators.required],
+    email:['', [Validators.required, Validators.email]],
+    phone:['', [Validators.pattern(/^01[0125][0-9]{8}$/)]],
+    password:['', [
+      Validators.required,
+      Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/)]],
+    confirmPassword:['', [
+      Validators.required,
+      Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/)]],
+    role:['', [Validators.required, matchRole]],
+    tags:'',
+  } ,
+  {
+      validator: [matchPassword('password', 'confirmPassword'),validatePassword()]
+  }
+  )
+
+  @ViewChild('registerNgForm', { static: true })
+  public registerNgForm!: NgForm;
 
   public constructor(
     public fb: FormBuilder,
@@ -24,23 +42,6 @@ export class RegisterComponent implements OnInit {
     ) { }
 
   public ngOnInit() {
-    this.registerForm = this.fb.group({
-      name:['', Validators.required],
-      email:['', [Validators.required, Validators.email]],
-      phone:['', [Validators.pattern(/^01[0125][0-9]{8}$/)]],
-      password:['', [
-        Validators.required,
-        Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/)]],
-      confirmPassword:['', [
-        Validators.required,
-        Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/)]],
-      role:['', [Validators.required, matchRole]],
-      tags:'',
-    } ,
-    {
-        validator: [matchPassword('password', 'confirmPassword'),validatePassword()]
-    }
-    )
   }
 
   public register() {
@@ -51,7 +52,7 @@ export class RegisterComponent implements OnInit {
       this.isLoading= true;
       let tags = this.registerForm.getRawValue().tags
       const user = new User(this.registerForm.getRawValue())
-      tags = tags.split(',').map(tag=>{
+      tags = tags.split(',').map((tag:any)=>{
         return {tag}
       })
 
@@ -78,7 +79,7 @@ export class RegisterComponent implements OnInit {
 
 
   get registerFormControl(): {
-    [key: string]: AbstractControl;
+    [key: string]: AbstractControl|any;
 } {
     return this.registerForm.controls;
   }

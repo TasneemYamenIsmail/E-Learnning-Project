@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CoursesListComponent } from './course/components/courses-list/courses-list.component';
+import { CreatecourseComponent } from './course/components/createcourse/createcourse.component';
 import { SingleCourseComponent } from './course/components/single-course/single-course.component';
 import { QuizesListComponent } from './quiz/components/quizes-list/quizes-list.component';
 import { SingleQuizComponent } from './quiz/components/single-quiz/single-quiz.component';
@@ -15,17 +16,10 @@ import { TeachersListComponent } from './teacher/components/teachers-list/teache
 const routes: Routes = [
   {
     path:'',
-    redirectTo:'courses-list',
+    redirectTo:'course',
     pathMatch: 'full'
   },
-  {
-    path:'courses-list',
-    component: CoursesListComponent
-  },
-  {
-    path:'single-course',
-    component: SingleCourseComponent
-  },
+ 
   {
     path:'students-list',
     component: StudentsListComponent
@@ -58,6 +52,10 @@ const routes: Routes = [
     path:'single-question',
     component: SingleQuestionComponent
   },
+  {path:"course",component:CoursesListComponent},
+  {path:"course/:id",component:SingleCourseComponent},
+  {path:"create",component:CreatecourseComponent}
+  // {path:"login",component:LoginComponent},
 ];
 
 @NgModule({

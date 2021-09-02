@@ -1,6 +1,6 @@
 import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from "@angular/forms";
 
-export function  validatePassword(): ValidatorFn {
+export function  validatePassword():any{
   return (formGroup: FormGroup) => {
     const pass = formGroup.value.password.toLowerCase().trim();
     const confirmPass = formGroup.value.confirmPassword?formGroup.value.confirmPassword.toLowerCase().trim():'';
@@ -28,8 +28,8 @@ export function  validatePassword(): ValidatorFn {
 }
 
 
-export function matchPassword(password: string, confirmPassword: string) {
-  return (formGroup: FormGroup) => {
+export function matchPassword(password: string, confirmPassword: string):any {
+  return (formGroup: any) => {
     const passwordControl = formGroup.controls[password];
     const confirmPasswordControl = formGroup.controls[confirmPassword];
 
@@ -46,6 +46,7 @@ export function matchPassword(password: string, confirmPassword: string) {
     } else {
       confirmPasswordControl.setErrors(null);
     }
+    return null
   }
 }
 

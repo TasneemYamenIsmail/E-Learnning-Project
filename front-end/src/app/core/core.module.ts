@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SingleCourseComponent } from './course/components/single-course/single-course.component';
@@ -14,6 +15,7 @@ import { CoreLayoutComponent } from './core-layout.component';
 import { CoreRoutingModule } from './core-routing.module';
 import { FooterComponent } from '../layout/footer/footer.component';
 import { NavbarComponent } from '../layout/navbar/navbar.component';
+import { CreatecourseComponent } from './course/components/createcourse/createcourse.component';
 
 
 
@@ -31,11 +33,14 @@ import { NavbarComponent } from '../layout/navbar/navbar.component';
     TeachersListComponent,
     CoreLayoutComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    CreatecourseComponent
   ],
   imports: [
     CommonModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
     CoreLayoutComponent
