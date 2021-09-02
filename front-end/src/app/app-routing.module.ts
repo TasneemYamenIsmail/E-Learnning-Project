@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthLayoutComponent } from './auth/auth-layout.component';
+import { AuthLayoutComponent } from './auth';
+
 import { ActivateComponent } from './auth/components/activate/activate.component';
-import { CoreLayoutComponent } from './core/core-layout.component';
+import { CoreLayoutComponent } from './core';
+
 
 
 const routes: Routes = [
@@ -17,7 +19,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: '../app/auth/auth.module#AuthModule'    // old way for lazy routing module
+        loadChildren: () =>
+          import('./auth').then(m => m.AuthModule)  // new way for lazy routing module
       }
     ]
   },
@@ -28,7 +31,7 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('../app/core/core.module').then(m => m.CoreModule)  // new way for lazy routing module
+          import('./core').then(m => m.CoreModule)  // new way for lazy routing module
       }
     ]
   },
