@@ -34,7 +34,7 @@
 
             <div class="row">
               <div class="col-lg-6">
-                <input type="text" placeholder="* Password" formControlName="password">
+                <input type="password" placeholder="* Password" formControlName="password">
                 <div class="text-danger"
                   *ngIf="(registerFormControl.password.touched && registerNgForm.submitted) && registerFormControl.password?.errors?.required">
                   Password is required
@@ -54,7 +54,7 @@
             </div>
 
             <div class="col-lg-6">
-              <input type="text" placeholder="* Confirm Password" formControlName="confirmPassword">
+              <input type="password" placeholder="* Confirm Password" formControlName="confirmPassword">
               <div class="text-danger"
                 *ngIf="(registerFormControl.confirmPassword.touched && registerNgForm.submitted) && registerFormControl.confirmPassword?.errors?.required">
                 Confirm Password is required
@@ -74,7 +74,15 @@
             </div>
           </div>
 
-            <input type="text" placeholder="* Role" formControlName="role">
+            <!-- <input type="text" placeholder="* Role" formControlName="role"> -->
+            <select class=""
+            formControlName="role" id="roles" placeholder="Select Role">
+              <option value="" disabled>Select Role</option>
+              <option *ngFor="let role of roles; let i = index" [value]="role.toLowerCase()">
+                {{role}}
+              </option>
+            </select>
+
             <div class="text-danger"
               *ngIf="(registerFormControl.role.touched && registerNgForm.submitted) && registerFormControl.role?.errors?.required">
               Role is required

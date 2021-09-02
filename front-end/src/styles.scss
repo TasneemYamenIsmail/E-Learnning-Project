@@ -330,6 +330,7 @@ ol {
 }
 
 .intro-newslatter input[type=text],
+.intro-newslatter input[type=password],
 .intro-newslatter input[type=email] {
 	height: 53px;
 	width: 36.4%;
@@ -412,6 +413,7 @@ ol {
 }
 
 .course-search-form input[type=text],
+.course-search-form input[type=password],
 .course-search-form input[type=email] {
 	height: 56px;
 	width: 36.6%;
@@ -424,6 +426,7 @@ ol {
 }
 
 .course-search-form input[type=text]:focus,
+.course-search-form input[type=password]:focus,
 .course-search-form input[type=email]:focus {
 	border-bottom: 2px solid #d82a4e;
 }
@@ -468,6 +471,7 @@ ol {
 }
 
 .search-section.ss-other-page .course-search-form input[type=text]:focus,
+.search-section.ss-other-page .course-search-form input[type=password]:focus,
 .search-section.ss-other-page .course-search-form input[type=email]:focus {
 	border-bottom: none;
 }
@@ -647,11 +651,15 @@ ol {
 }
 
 .signup-form input[type=text],
+.signup-form input[type=password],
 .signup-form input[type=email],
 .signup-form textarea,
+.signup-form select,
 .contact-form input[type=text],
+.contact-form input[type=password],
 .contact-form input[type=email],
-.contact-form textarea {
+.contact-form textarea,
+.signup-form select {
 	height: 57px;
 	width: 100%;
 	padding: 0 30px;
@@ -664,11 +672,15 @@ ol {
 }
 
 .signup-form input[type=text]:focus,
+.signup-form input[type=password]:focus,
 .signup-form input[type=email]:focus,
 .signup-form textarea:focus,
+.signup-form select:focus,
 .contact-form input[type=text]:focus,
+.contact-form input[type=password]:focus,
 .contact-form input[type=email]:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.contact-form select:focus {
 	border-bottom: 2px solid #d82a4e;
 }
 
@@ -1487,7 +1499,9 @@ ol {
 		min-width: 160px;
 	}
 	.course-search-form input[type=text],
-	.course-search-form input[type=email] {
+	.course-search-form input[type=password],
+	.course-search-form input[type=email],
+    .course-search-form select {
 		width: 34.6%;
 	}
 	.course-search-form .site-btn {
@@ -1526,7 +1540,10 @@ ol {
 		font-size: 43px;
 	}
 	.intro-newslatter input[type=text],
-	.intro-newslatter input[type=email] {
+	.intro-newslatter input[type=password],
+	.intro-newslatter input[type=email],
+  .intro-newslatter select
+   {
 		width: 33%;
 	}
 	.intro-newslatter .site-btn {
@@ -1539,19 +1556,25 @@ ol {
 		text-align: center;
 	}
 	.course-search-form input[type=text],
-	.course-search-form input[type=email] {
+	.course-search-form input[type=password],
+	.course-search-form input[type=email],
+  .course-search-form select {
 		width: 48.1%;
 		margin-bottom: 20px;
 	}
 	.course-search-form input[type=text].last-m,
-	.course-search-form input[type=email].last-m {
+	.course-search-form input[type=password].last-m,
+	.course-search-form input[type=email].last-m,
+  .course-search-form select{
 		margin-right: 0;
 	}
 	.search-section.ss-other-page .search-warp {
 		padding: 60px 30px 30px;
 	}
 	.search-section.ss-other-page .course-search-form input[type=text],
-	.search-section.ss-other-page .course-search-form input[type=email] {
+	.search-section.ss-other-page .course-search-form input[type=password],
+	.search-section.ss-other-page .course-search-form input[type=email],
+  .search-section.ss-other-page .course-search-form select {
 		width: 48.5%;
 	}
 	.course-item .course-thumb {
@@ -1635,19 +1658,25 @@ ol {
 		text-align: center;
 	}
 	.intro-newslatter input[type=text],
-	.intro-newslatter input[type=email] {
+	.intro-newslatter input[type=password],
+	.intro-newslatter input[type=email],
+  .intro-newslatter select {
 		margin-bottom: 20px;
 		width: 47.6%;
 	}
 	.intro-newslatter input[type=text].last-s,
-	.intro-newslatter input[type=email].last-s {
+	.intro-newslatter input[type=password].last-s,
+	.intro-newslatter input[type=email].last-s ,
+  .intro-newslatter select.last-s {
 		margin-right: 0;
 	}
 	.search-warp {
 		padding: 40px 30px 30px;
 	}
 	.course-search-form input[type=text],
-	.course-search-form input[type=email] {
+	.course-search-form input[type=password],
+	.course-search-form input[type=email],
+  .course-search-form select {
 		width: 100%;
 		margin-bottom: 20px;
 		margin-right: 0;
@@ -1695,7 +1724,9 @@ ol {
 		padding-bottom: 100px;
 	}
 	.intro-newslatter input[type=text],
-	.intro-newslatter input[type=email] {
+	.intro-newslatter input[type=password],
+	.intro-newslatter input[type=email],
+  .intro-newslatter select {
 		margin-bottom: 20px;
 		width: 100%;
 		margin-right: 0;

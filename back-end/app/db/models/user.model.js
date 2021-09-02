@@ -32,7 +32,7 @@ const userSchema = mongoose.Schema({
             value.toLowerCase().includes('password') ||
             value.toLowerCase().includes(this.name) ||
             value.toLowerCase().includes(this.email) )
-                    throw new Error('Invalid Email')
+                    throw new Error('Invalid Password')
         }
     },
     phone:{

@@ -13,6 +13,11 @@ import { AuthService } from '../../services/auth.service';
 export class RegisterComponent implements OnInit {
   public isLoading = false;
   public error!: { error: { data: string; }; };
+  public roles = ['Teacher', 'Student']
+
+  @ViewChild('registerNgForm', { static: true })
+  public registerNgForm!: NgForm;
+
 
   public registerForm:FormGroup = this.fb.group({
     name:['', Validators.required],
@@ -24,16 +29,13 @@ export class RegisterComponent implements OnInit {
     confirmPassword:['', [
       Validators.required,
       Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/)]],
-    role:['', [Validators.required, matchRole]],
+    role:['Student', [Validators.required, matchRole]],
     tags:'',
   } ,
   {
       validator: [matchPassword('password', 'confirmPassword'),validatePassword()]
   }
   )
-
-  @ViewChild('registerNgForm', { static: true })
-  public registerNgForm!: NgForm;
 
   public constructor(
     public fb: FormBuilder,

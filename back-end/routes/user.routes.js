@@ -9,9 +9,11 @@ router.get('', (req,res)=>{
 });
 
 router.post('/register', controller.addUser);
-router.get('/user/courses', auth, controller.getUserCourses);
 
+router.get('/user/courses', auth, controller.getUserCourses);
 router.get('/user/:id', controller.getUser);
+
+
 router.get('/activate/:id', controller.activateUser);
 router.post('/login', controller.login);
 
